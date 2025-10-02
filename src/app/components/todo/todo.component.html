@@ -1,0 +1,9 @@
+<input [(ngModel)]="newTodo" placeholder="Nuovo Todo" />
+<button (click)="onAdd()">Add</button>
+
+<ul>
+  <li *ngFor="let todo of todos$ | async; let i = index">
+    {{ todo }}
+    <button (click)="onRemove(i)">Remove</button>
+  </li>
+</ul>
