@@ -30,9 +30,11 @@ describe('TodoComponent', () => {
   });
 
   it('should add a todo', () => {
+   // Controlla se il metodo store.dispatch è stato chiamato
     const dispatchSpy = jest.spyOn(store, 'dispatch');
     component.newTodo = 'Task 1';
     component.onAdd();
+    // che sia stato chiamato esattamente con l’azione addTodo({ todo: 'Task 1' })
     expect(dispatchSpy).toHaveBeenCalledWith(addTodo({ todo: 'Task 1' }));
     expect(component.newTodo).toBe('');
   });
